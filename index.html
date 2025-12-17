@@ -1,285 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Mokete Merswil Akama - Software Engineer Portfolio</title>
+    <title>Mokete Merswil Akama | Software Engineer Portfolio</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Merriweather:700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@700&display=swap">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        /* 1. Spacing from browser top */
+        :root {
+            --primary: #1f395b;
+            --emerald: #10b981;
+            --amber: #f59e0b;
+            --indigo: #6366f1;
+            --bg: #f8fafc;
+        }
+
         html { scroll-behavior: smooth; }
         body { 
-            font-family: 'Roboto', sans-serif; 
-            line-height: 1.7; 
-            background-color: #f4f7f9; 
-            color: #1a1a1a; 
-            padding-top: 50px; /* Space from top */
-        }
-        
-        h1, h2, h3, h4, h5 { font-family: 'Merriweather', serif; font-weight: 700; color: #000; }
-        .w3-main { max-width: 1000px; margin: auto; padding: 0 20px; }
-        .w3-blue-grey { background-color: #1f395b !important; }
-        
-        /* Modular Content Design */
-        .content-module { 
-            background-color: #fff; 
-            padding: 40px; 
-            margin-bottom: 30px; 
-            border-radius: 12px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
-        }
-        
-        .section-header { 
-            border-bottom: 3px solid #1f395b; 
-            padding-bottom: 12px; 
-            margin-bottom: 30px; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            font-size: 1.3em; 
-        }
-        
-        /* Skills Grid Styling */
-        .skill-column { 
-            padding: 20px; 
-            border: 1px solid #eee; 
-            border-radius: 10px; 
-            background-color: #fdfdfd; 
-            height: 100%; 
-            transition: transform 0.3s ease;
-        }
-        .skill-column:hover { transform: translateY(-5px); border-color: #1f395b; }
-        
-        .skill-tag { 
-            display: inline-block; 
-            background-color: #e3f2fd; 
-            color: #1f395b; 
-            padding: 6px 14px; 
-            margin: 5px; 
-            border-radius: 20px; 
-            font-weight: 600; 
-            font-size: 12px; 
-            border: 1px solid #bbdefb; 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg); 
+            color: #1e293b; 
+            padding-top: 60px; /* Space from top of browser */
+            padding-bottom: 40px;
         }
 
-        /* Project Accordion Refinements */
-        .project-trigger { 
-            cursor: pointer; 
-            background: #fff; 
-            padding: 20px; 
-            width: 100%; 
-            border: 1px solid #eef0f2; 
-            text-align: left; 
-            outline: none; 
-            transition: all 0.3s ease; 
-            border-radius: 8px; 
-            margin-top: 15px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        .project-trigger:hover { 
-            border-color: #1f395b; 
-            background-color: #fcfdfe; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .tech-pill { 
-            background: #f1f1f1; 
-            padding: 3px 12px; 
-            border-radius: 15px; 
-            font-size: 11px; 
-            font-weight: bold; 
-            color: #666; 
-            margin-right: 5px; 
-        }
+        .w3-main { max-width: 1050px; margin: auto; padding: 0 25px; }
 
-        .header-content { 
-            background: linear-gradient(rgba(31, 57, 91, 0.9), rgba(31, 57, 91, 0.8)), url('./IT-scaled.jpg') no-repeat center center; 
-            background-size: cover; 
-            padding: 100px 20px; 
+        /* Scroll Animation Effect */
+        .reveal { opacity: 0; transform: translateY(25px); transition: all 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Professional Glassmorphism Header */
+        .header-card { 
+            background: linear-gradient(135deg, rgba(31, 57, 91, 0.95), rgba(30, 41, 59, 0.8)), url('IT-scaled.jpg');
+            background-size: cover;
+            padding: 100px 40px; 
             text-align: center; 
             color: white; 
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(31, 57, 91, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
         }
+
+        /* Technical Toolkit Grid (3 Boxes) */
+        .skill-box { 
+            background: #fff; 
+            padding: 25px; 
+            border-radius: 16px; 
+            border: 1px solid #e2e8f0;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .skill-box:hover { border-color: var(--primary); transform: translateY(-5px); }
+        
+        .skill-pill { 
+            display: inline-block; 
+            background-color: #f1f5f9; 
+            color: var(--primary); 
+            padding: 6px 14px; 
+            margin: 4px; 
+            border-radius: 99px; 
+            font-weight: 600; 
+            font-size: 12px; 
+        }
+
+        /* Project Section Styling */
+        .section-header { 
+            font-weight: 800; 
+            color: var(--primary); 
+            letter-spacing: -0.5px; 
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-card { 
+            cursor: pointer; 
+            background: #fff; 
+            padding: 24px; 
+            width: 100%; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 12px; 
+            margin-top: 16px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            transition: 0.2s;
+        }
+        .project-card:hover { border-color: var(--primary); background: #fdfdfd; }
+        
+        /* Category Accents */
+        .border-intern { border-left: 6px solid var(--emerald); }
+        .border-academic { border-left: 6px solid var(--amber); }
+        .border-lab { border-left: 6px solid var(--indigo); }
+
+        .project-content { 
+            padding: 0 24px; 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.4s ease-in-out; 
+            background: #fff;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .tech-tag { font-size: 11px; font-weight: 700; color: #64748b; background: #f8fafc; padding: 2px 8px; border-radius: 4px; margin-right: 5px; border: 1px solid #e2e8f0;}
+
+        /* Floating Contact Button */
+        .fab {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            background: var(--primary);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(31, 57, 91, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            transition: 0.3s;
+        }
+        .fab:hover { transform: scale(1.1); }
     </style>
 </head>
 
 <body>
 
+<div class="fab" onclick="document.getElementById('contactModal').style.display='block'">
+    <i class="fa fa-paper-plane fa-lg"></i>
+</div>
+
 <div class="w3-main">
 
-    <header class="header-content">
-        <h1 class="w3-xxlarge" style="margin-bottom: 10px;">Mokete Merswil Akama</h1>
-        <h3 class="w3-text-light-grey w3-wide w3-large" style="font-weight: 300;">Software Engineer | Full-Stack & Security</h3>
+    <header class="header-card reveal">
+        <h1 class="w3-xxlarge" style="font-weight: 800; margin-bottom: 5px;">Mokete Merswil Akama</h1>
+        <p class="w3-large w3-text-light-grey" style="font-weight: 300;">Software Engineer | Full-Stack & Security</p>
         <div class="w3-margin-top">
-            <a href="https://github.com/merswil" target="_blank" class="w3-button w3-border w3-round-large w3-hover-white"><i class="fa fa-github w3-margin-right"></i>GitHub</a>
-            <a href="https://www.linkedin.com/in/mokete-merswil-akama-0813772b8/" target="_blank" class="w3-button w3-border w3-round-large w3-hover-white w3-margin-left"><i class="fa fa-linkedin w3-margin-right"></i>LinkedIn</a>
-            <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-button w3-white w3-text-dark-grey w3-round-large w3-margin-left"><b>Contact Info</b></button>
+            <a href="https://github.com/merswil" target="_blank" class="w3-button w3-round-xxlarge w3-border w3-hover-white">GitHub</a>
+            <a href="https://linkedin.com/in/mokete-merswil-akama-0813772b8" target="_blank" class="w3-button w3-round-xxlarge w3-border w3-hover-white w3-margin-left">LinkedIn</a>
         </div>
     </header>
 
-    <div class="content-module w3-margin-top">
-        <h2 class="section-header"><i class="fa fa-terminal w3-margin-right w3-text-blue-grey"></i>Technical Toolkit</h2>
+    <div class="reveal" style="margin-bottom: 50px;">
         <div class="w3-row-padding" style="margin:0 -16px;">
             <div class="w3-third w3-margin-bottom">
-                <div class="skill-column">
-                    <h4 class="w3-text-blue-grey"><i class="fa fa-code w3-margin-right"></i>Languages</h4>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">JavaScript (ES6+)</span>
-                    <span class="skill-tag">C / C++</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">HTML5 / CSS3</span>
+                <div class="skill-box">
+                    <h5 class="w3-text-blue-grey"><b>Languages</b></h5>
+                    <span class="skill-pill">Java</span><span class="skill-pill">Python</span>
+                    <span class="skill-pill">JavaScript</span><span class="skill-pill">C / C++</span>
+                    <span class="skill-pill">SQL</span>
                 </div>
             </div>
             <div class="w3-third w3-margin-bottom">
-                <div class="skill-column">
-                    <h4 class="w3-text-blue-grey"><i class="fa fa-layer-group w3-margin-right"></i>Frameworks</h4>
-                    <span class="skill-tag">React.js</span>
-                    <span class="skill-tag">Django</span>
-                    <span class="skill-tag">Spring Boot</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">JavaFX</span>
-                    <span class="skill-tag">Tailwind CSS</span>
+                <div class="skill-box">
+                    <h5 class="w3-text-blue-grey"><b>Frameworks</b></h5>
+                    <span class="skill-pill">React.js</span><span class="skill-pill">Django</span>
+                    <span class="skill-pill">Spring Boot</span><span class="skill-pill">JavaFX</span>
+                    <span class="skill-pill">Node.js</span>
                 </div>
             </div>
             <div class="w3-third w3-margin-bottom">
-                <div class="skill-column">
-                    <h4 class="w3-text-blue-grey"><i class="fa fa-shield-alt w3-margin-right"></i>Tools & Security</h4>
-                    <span class="skill-tag">Git / GitHub</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">REST APIs</span>
-                    <span class="skill-tag">Cryptography</span>
+                <div class="skill-box">
+                    <h5 class="w3-text-blue-grey"><b>Tools & Sec</b></h5>
+                    <span class="skill-pill">Git</span><span class="skill-pill">Docker</span>
+                    <span class="skill-pill">PostgreSQL</span><span class="skill-pill">AES-256</span>
+                    <span class="skill-pill">REST APIs</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="content-module">
-        <h2 class="section-header"><i class="fa fa-briefcase w3-margin-right w3-text-blue-grey"></i>Professional Internships</h2>
-
-        <div class="project-trigger">
-            <h4>Kyky Platform Development (Web Internship)</h4>
-            <span class="w3-tag w3-blue-grey w3-round">Frontend</span>
+    <div class="reveal" style="margin-bottom: 40px;">
+        <h2 class="section-header"><i class="fa fa-briefcase w3-margin-right"></i>Industry Experience</h2>
+        
+        <div class="project-card border-intern" onclick="toggleAcc(this)">
+            <div>
+                <h4 style="margin:0; font-weight:700;">Kyky Platform Development</h4>
+                <small class="w3-text-emerald">Frontend Internship | React.js</small>
+            </div>
+            <i class="fa fa-chevron-down"></i>
         </div>
         <div class="project-content">
-            <p class="w3-margin-top">Contributed to building the user-facing digital service platform for Kyky.</p>
-            <p><strong>Key Focus:</strong> Component-based UI development, responsive layouts, and API data binding.</p>
-            <p><span class="tech-pill">React.js</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Tailwind CSS</span></p>
+            <div class="w3-padding-large">
+                <p>Collaborated on a live digital service platform. Optimized UI responsiveness and managed state for complex user workflows.</p>
+                <span class="tech-tag">REACT</span><span class="tech-tag">JAVASCRIPT</span><span class="tech-tag">TAILWIND</span>
+            </div>
         </div>
 
-        <div class="project-trigger">
-            <h4>Natlex Ticketing Solution (Software Internship)</h4>
-            <span class="w3-tag w3-blue-grey w3-round">Backend</span>
+        <div class="project-card border-intern" onclick="toggleAcc(this)">
+            <div>
+                <h4 style="margin:0; font-weight:700;">Natlex Ticketing Solution</h4>
+                <small class="w3-text-emerald">Software Internship | Java & Spring</small>
+            </div>
+            <i class="fa fa-chevron-down"></i>
         </div>
         <div class="project-content">
-            <p class="w3-margin-top">Developed a professional-grade backend system for QR-code based ticketing and authentication.</p>
-            <p><strong>Key Focus:</strong> Scalable backend logic, ticket uniqueness algorithms, and high-speed validation.</p>
-            <p><span class="tech-pill">Java</span><span class="tech-pill">Spring Boot</span><span class="tech-pill">QR Libraries</span></p>
-        </div>
-    </div>
-
-    <div class="content-module">
-        <h2 class="section-header"><i class="fa fa-university w3-margin-right w3-text-blue-grey"></i>Academic Projects</h2>
-
-        <div class="project-trigger">
-            <h4>Construction Cost Estimation Software</h4>
-            <span class="w3-tag w3-orange w3-round">JavaFX Project</span>
-        </div>
-        <div class="project-content">
-            <p class="w3-margin-top">A full-stack desktop application designed to simplify material and labor budgeting for housing projects.</p>
-            <p><strong>Key Features:</strong> Custom algorithms for cost forecasting, persistent SQL storage, and a structured Graphical User Interface.</p>
-            <p><span class="tech-pill">Java</span><span class="tech-pill">JavaFX</span><span class="tech-pill">MS SQL Server</span><span class="tech-pill">OOP</span></p>
-        </div>
-    </div>
-
-    <div class="content-module">
-        <h2 class="section-header"><i class="fa fa-flask w3-margin-right w3-text-blue-grey"></i>Security & Personal Labs</h2>
-
-        <div class="project-trigger">
-            <h4>Security & Automation Suite (Python)</h4>
-            <span class="w3-tag w3-indigo w3-round">Personal Lab</span>
-        </div>
-        <div class="project-content">
-            <p class="w3-margin-top">A collection of cybersecurity tools focused on data protection and secure authentication.</p>
-            <ul>
-                <li><strong>File Encryptor:</strong> Symmetric AES-256 tool.</li>
-                <li><strong>Login System:</strong> Password hashing using bcrypt.</li>
-                <li><strong>Strength Evaluator:</strong> Regex-based entropy analysis.</li>
-            </ul>
-            <p><span class="tech-pill">Python</span><span class="tech-pill">Django</span><span class="tech-pill">Cryptography</span></p>
-        </div>
-
-        <div class="project-trigger">
-            <h4>National ID Authentication Model</h4>
-            <span class="w3-tag w3-indigo w3-round">Conceptual</span>
-        </div>
-        <div class="project-content">
-            <p class="w3-margin-top">Architectural design for a secure, decentralized identity system utilizing Zero-Knowledge Proofs (ZKP).</p>
-            <p><span class="tech-pill">System Architecture</span><span class="tech-pill">ZKP</span><span class="tech-pill">Security</span></p>
-        </div>
-    </div>
-
-    <div class="content-module">
-        <h2 class="section-header"><i class="fa fa-graduation-cap w3-margin-right w3-text-blue-grey"></i>Academic Background</h2>
-        <div class="w3-container w3-border-left w3-border-blue-grey w3-margin-bottom">
-            <h4 class="w3-text-blue-grey" style="margin-top:0;">B.Sc. in Information Technology</h4>
-            <p><strong>University of Eastern Finland</strong> | 2023 – 2026</p>
-        </div>
-        <div class="w3-container w3-border-left w3-border-blue-grey">
-            <h4 class="w3-text-blue-grey" style="margin-top:0;">B.Tech. in Mechanical Engineering</h4>
-            <p><strong>University of Buea</strong> | Graduated 2021</p>
-        </div>
-    </div>
-
-    <div id="contactModal" class="w3-modal">
-        <div class="w3-modal-content w3-animate-zoom w3-card-4" style="max-width:500px; border-radius: 15px; overflow: hidden;">
-            <header class="w3-container w3-blue-grey"> 
-                <span onclick="document.getElementById('contactModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                <h2 class="w3-large">Direct Contact</h2>
-            </header>
-            <div class="w3-container w3-padding-24 w3-white">
-                <p><i class="fa fa-envelope w3-text-blue-grey w3-margin-right"></i> moketemerswil01@gmail.com</p>
-                <p><i class="fa fa-phone w3-text-blue-grey w3-margin-right"></i> +358 46 539 3518</p>
-                <p><i class="fa fa-map-marker w3-text-blue-grey w3-margin-right"></i> Vantaa, Finland</p>
-                <hr>
-                <div class="w3-center">
-                    <p class="w3-small">Scan for Online Portfolio:</p>
-                    <div style="width:100px; height:100px; background:#f9f9f9; margin:auto; display:flex; align-items:center; justify-content:center; border:1px dashed #ccc;">
-                        <span class="w3-tiny w3-text-grey">QR Code</span>
-                    </div>
-                </div>
+            <div class="w3-padding-large">
+                <p>Engineered a secure backend for QR-based ticketing. Developed logic to handle ticket uniqueness and fraud detection at scale.</p>
+                <span class="tech-tag">SPRING BOOT</span><span class="tech-tag">JAVA</span><span class="tech-tag">ENCRYPTION</span>
             </div>
         </div>
     </div>
 
-    <footer class="w3-container w3-center w3-padding-48 w3-text-grey">
-        <p class="w3-small">Mokete Merswil Akama &copy; 2025 | Developed with HTML, CSS, & JavaScript</p>
+    <div class="reveal" style="margin-bottom: 40px;">
+        <h2 class="section-header"><i class="fa fa-university w3-margin-right"></i>Academic Projects</h2>
+        
+        <div class="project-card border-academic" onclick="toggleAcc(this)">
+            <div>
+                <h4 style="margin:0; font-weight:700;">Construction Cost Estimation Software</h4>
+                <small class="w3-text-amber">University Project | JavaFX & SQL</small>
+            </div>
+            <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="project-content">
+            <div class="w3-padding-large">
+                <p>Full-stack desktop tool automating labor and material calculations. Implemented persistent data architecture using SQL Server.</p>
+                <span class="tech-tag">JAVA</span><span class="tech-tag">JAVAFX</span><span class="tech-tag">MS SQL SERVER</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="reveal" style="margin-bottom: 40px;">
+        <h2 class="section-header"><i class="fa fa-flask w3-margin-right"></i>Security & Personal Labs</h2>
+        
+        <div class="project-card border-lab" onclick="toggleAcc(this)">
+            <div>
+                <h4 style="margin:0; font-weight:700;">Security & Automation Suite</h4>
+                <small class="w3-text-indigo">Personal Lab | Python Security</small>
+            </div>
+            <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="project-content">
+            <div class="w3-padding-large">
+                <p>A suite of security tools: File Encryptor (AES-256), Secure Login (bcrypt), and Password Strength Evaluator.</p>
+                <span class="tech-tag">PYTHON</span><span class="tech-tag">CRYPTOGRAPHY</span><span class="tech-tag">DJANGO</span>
+            </div>
+        </div>
+
+        <div class="project-card border-lab" onclick="toggleAcc(this)">
+            <div>
+                <h4 style="margin:0; font-weight:700;">National ID Authentication Model</h4>
+                <small class="w3-text-indigo">Conceptual | System Design</small>
+            </div>
+            <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="project-content">
+            <div class="w3-padding-large">
+                <p>A high-level design for decentralized identity verification leveraging Zero-Knowledge Proof (ZKP) protocols.</p>
+                <span class="tech-tag">CYBERSECURITY</span><span class="tech-tag">ZKP</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="reveal" style="margin-bottom: 60px;">
+        <h2 class="section-header"><i class="fa fa-graduation-cap w3-margin-right"></i>Academic Background</h2>
+        <div class="w3-white w3-padding-32 w3-round-large w3-border w3-border-light-grey">
+            <div class="w3-container w3-margin-bottom">
+                <h4 style="margin:0; font-weight:700;">B.Sc. in Information Technology</h4>
+                <p class="w3-text-grey">University of Eastern Finland | 2023 – 2026</p>
+                <div class="w3-margin-top">
+                    <span class="skill-pill">Algorithms</span><span class="skill-pill">Cybersecurity</span>
+                    <span class="skill-pill">Data Structures</span><span class="skill-pill">Systems Logic</span>
+                </div>
+            </div>
+            <hr>
+            <div class="w3-container">
+                <h4 style="margin:0; font-weight:700;">B.Tech. in Mechanical Engineering</h4>
+                <p class="w3-text-grey">University of Buea | Graduated 2021</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="w3-center w3-padding-32 w3-text-grey">
+        <p class="w3-small">Mokete Merswil Akama &copy; 2025</p>
     </footer>
 
 </div>
 
+<div id="contactModal" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-round-xlarge w3-card-4" style="max-width:500px">
+        <header class="w3-container w3-blue-grey w3-padding-16" style="border-radius: 20px 20px 0 0;">
+            <span onclick="document.getElementById('contactModal').style.display='none'" class="w3-button w3-display-topright w3-round-xlarge">&times;</span>
+            <h3 class="w3-center" style="margin:0">Direct Contact</h3>
+        </header>
+        <div class="w3-container w3-padding-32 w3-center w3-white" style="border-radius: 0 0 20px 20px;">
+            <p><i class="fa fa-envelope w3-text-blue-grey w3-margin-right"></i> moketemerswil01@gmail.com</p>
+            <p><i class="fa fa-phone w3-text-blue-grey w3-margin-right"></i> +358 46 539 3518</p>
+            <p><i class="fa fa-map-marker w3-text-blue-grey w3-margin-right"></i> Vantaa, Finland</p>
+            <hr>
+            <p class="w3-small w3-text-grey"><b>Scan to view online:</b></p>
+            <img src="qrcode_merswil.github.io.png" 
+                 alt="Portfolio QR Code" 
+                 style="width:150px; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+        </div>
+    </div>
+</div>
+
 <script>
-    // Accordion Control
-    var acc = document.getElementsByClassName("project-trigger");
-    var i;
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
+    // Reveal On Scroll Functionality
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 100;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    // Accordion Functionality
+    function toggleAcc(element) {
+        element.classList.toggle("w3-light-grey");
+        var panel = element.nextElementSibling;
         if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
+            panel.style.maxHeight = null;
         } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        } 
-      });
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
     }
 
-    // Modal Control
+    // Modal Click-Outside Closure
     window.onclick = function(event) {
         if (event.target == document.getElementById('contactModal')) {
             document.getElementById('contactModal').style.display = "none";
